@@ -1,16 +1,19 @@
 def bubble_sort(array)
-    array.each_with_index do |number, i|
-        i = i + 1
-        if i == 6 #this takes care of last iteration so no nil comparison error
-            break
-        end
-        if number > array[i] #this does the comparing and swapping
-            array[array.index(number)], array[i] = array[i], array[array.index(number)]
+    sorted = false
+    while sorted == false do
+        i = 0
+        sorted = true
+        while i < (array.length - 1) do
+            if array[i] > array[i + 1]
+                array[i], array[i+1] = array[i+1], array[i]
+                sorted = false
+            end
+            i += 1
         end
     end
-    p array
+    array
 end
 
 array1 = [12,1,5,8,4,11]
 
-bubble_sort(array1)
+p bubble_sort(array1)
